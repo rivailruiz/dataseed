@@ -6,8 +6,12 @@
 ### 1. Clonar o projeto
 
 
+```bash
+git clone https://github.com/rivailruiz/dataseed.git
+```
+
 ### 2. Configure as variáveis de ambiente
-*Na **raiz do projeto**, crie o arquivo .env; Para facilitar eu já criei um example. Rode o comando para copiar e altere apenas o db_host (adicionando o seu ip local. Obs: não pode ser 127.0.0.1 ou 0.0.0.0)
+*Na **raiz do projeto**, crie o arquivo .env; Para facilitar eu já criei um example. Rode o comando para copiar e altere apenas o db_host (adicionando o seu ip local. Obs: não pode ser 127.0.0.1 ou 0.0.0.0). Para que o envio de email para recuperção de senha funcione, precisa configurar também as variaveis de SMTP no .env.
 
 ```bash
 cp .env.example .env
@@ -27,12 +31,16 @@ docker-compose run --rm php-fpm composer update  && docker-compose run --rm php-
 ```
 
 
-
-### 6. rode o migration
-
+### 6. Rode o migration
 
 ```bash
 docker-compose run --rm php-fpm php artisan migrate
+```
+
+### 6. Para rodar os testes
+
+```bash
+docker-compose run --rm php-fpm php artisan test
 ```
 
 

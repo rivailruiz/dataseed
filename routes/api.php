@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\Authenticate;
+use App\Http\Controllers\PasswordRecoveryController;
 
 
 
@@ -30,3 +29,7 @@ Route::post('logout', [AuthController::class, 'logout']);
 Route::get('/user', [UserController::class, 'getUserData'])->middleware('jwt');
 Route::put('/user', [UserController::class, 'updateUserData'])->middleware('jwt');
 Route::delete('/user', [UserController::class, 'deleteUser'])->middleware('jwt');
+
+
+//PASSWORD RECOVERY
+Route::post('/password/recovery', [PasswordRecoveryController::class, 'sendRecoveryEmail']);
