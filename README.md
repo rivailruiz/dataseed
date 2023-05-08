@@ -14,15 +14,23 @@ cp .env_example .env
 ```
 
 
-### 4. Instalando as dependências e configurando a API
+### 4. Instalando as dependências
 *4.1 Instale as dependências executando o comando na **raiz do projeto**:*
 ```bash
-composer install
+docker-compose run --rm php-fpm composer update  && docker-compose run --rm php-fpm composer install    
 ```
-
 
 ### 5. Execute o docker
 
 ```bash
 docker-compose up -d --build
 ```
+
+### 6. rode o migration
+
+
+```bash
+docker-compose run --rm php-fpm php artisan migrate
+```
+
+
