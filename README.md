@@ -7,7 +7,7 @@
 
 
 ### 2. Configure as variáveis de ambiente
-*Na **raiz do projeto**, crie o arquivo .env; Para facilitar eu já criei um example. Rode o comando para copiar e altere apenas o ip do host (adicionando o seu ip local. Obs: não pode ser 127.0.0.1 ou 0.0.0.0)
+*Na **raiz do projeto**, crie o arquivo .env; Para facilitar eu já criei um example. Rode o comando para copiar e altere apenas o db_host (adicionando o seu ip local. Obs: não pode ser 127.0.0.1 ou 0.0.0.0)
 
 ```bash
 cp .env_example .env
