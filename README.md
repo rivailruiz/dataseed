@@ -10,7 +10,13 @@
 *Na **raiz do projeto**, crie o arquivo .env; Para facilitar eu já criei um example. Rode o comando para copiar e altere apenas o db_host (adicionando o seu ip local. Obs: não pode ser 127.0.0.1 ou 0.0.0.0)
 
 ```bash
-cp .env_example .env
+cp .env.example .env
+```
+
+### 5. Execute o docker
+
+```bash
+docker-compose up -d --build
 ```
 
 
@@ -20,11 +26,7 @@ cp .env_example .env
 docker-compose run --rm php-fpm composer update  && docker-compose run --rm php-fpm composer install    
 ```
 
-### 5. Execute o docker
 
-```bash
-docker-compose up -d --build
-```
 
 ### 6. rode o migration
 
