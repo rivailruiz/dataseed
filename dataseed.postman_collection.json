@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "019c4ee2-4123-4ba7-af96-250c010b52ad",
+		"name": "dataseed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5735192"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"alex\",\n    \"email\": \"test@test.com\",\n    \"password\": \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:16000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "16000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:16000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "16000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Me",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6MTYwMDBcL2FwaVwvbG9naW4iLCJpYXQiOjE2ODM1NTgxNzQsImV4cCI6MTY4MzU2MTc3NCwibmJmIjoxNjgzNTU4MTc0LCJqdGkiOiJXeDV3M1V3anphY2xPblNJIiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OvFqNVDadUdFNACCZU61919H0KyBXnTNRvRCBwx5vV8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:16000/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "16000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6MTYwMDBcL2FwaVwvbG9naW4iLCJpYXQiOjE2ODM1MjI0NDksImV4cCI6MTY4MzUyNjA0OSwibmJmIjoxNjgzNTIyNDQ5LCJqdGkiOiJEZ1c5dGJSS3JBS2owTlFkIiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.gJdQ5EW9s6QGMz_OORyMOokjFy6GcvvpjlTuGDOgqmA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:16000/api/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "16000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6MTYwMDBcL2FwaVwvbG9naW4iLCJpYXQiOjE2ODM1NTgxNzQsImV4cCI6MTY4MzU2MTc3NCwibmJmIjoxNjgzNTU4MTc0LCJqdGkiOiJXeDV3M1V3anphY2xPblNJIiwic3ViIjoyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OvFqNVDadUdFNACCZU61919H0KyBXnTNRvRCBwx5vV8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"alex2\",\n    \"email\": \"test@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:16000/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "16000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password recovery",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:16000/api/password/recovery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "16000",
+					"path": [
+						"api",
+						"password",
+						"recovery"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

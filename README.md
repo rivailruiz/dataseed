@@ -43,4 +43,7 @@ docker-compose run --rm php-fpm php artisan migrate
 docker-compose run --rm php-fpm php artisan test
 ```
 
+### Deixei um export de collection do postman na raiz do projeto para testes
+
+
 
