@@ -3,46 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Models\User;
 
 class UserController extends Controller
 {
-    public function index()
+    public function getUserData(Request $request)
     {
-        $users = User::all();
-        return response()->json($users);
+        $user = JWTAuth::parseToken()->authenticate();
+        
+        return response()->json(['user' => $user]);
     }
 
-    public function store(Request $request)
+    public function updateUserData(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
+        $user = JWTAuth::parseToken()->authenticate();
+
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email,' . $user->id,
         ]);
 
-        $user = User::create($request->all());
-        return response()->json($user, 201);
-    }
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
 
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-        return response()->json($user);
-    }
+        $user->save();
 
-    public function update(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-        return response()->json($user);
+        return response()->json(['message' => 'User updated successfully', 'user' => $user]);
     }
-
-    public function destroy($id)
+    
+    public function deleteUser(Request $request)
     {
-        $user = User::findOrFail($id);
+        $user = JWTAuth::parseToken()->authenticate();
+
         $user->delete();
-        return response()->json(null, 204);
+
+        return response()->json(['message' => 'User deleted successfully']);
     }
+   
 }
 

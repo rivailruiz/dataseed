@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\Authenticate;
 
 
 
@@ -17,20 +19,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-
-Route::get('/', function () {
-    return "ola";
-});
-
-
-Route::post('login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('register', [AuthController::class, 'register'])->name('auth.login');
+//AUTH
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('register', [AuthController::class, 'register'])->name('register');
+Route::post('logout', [AuthController::class, 'logout']);
 
 
-Route::resource('users', 'App\Http\Controllers\UserController');
 
-// Route::post('register', 'AuthController@register');
-Route::middleware('auth:api')->group(function () {
-    Route::get('me', 'AuthController@me');
-    Route::post('logout', 'AuthController@logout');
-});
+//USER
+Route::get('/user', [UserController::class, 'getUserData'])->middleware('jwt');
+Route::put('/user', [UserController::class, 'updateUserData'])->middleware('jwt');
+Route::delete('/user', [UserController::class, 'deleteUser'])->middleware('jwt');
